@@ -4,5 +4,8 @@ class Skill < ApplicationRecord
     belongs_to :profile
 
     # Scopes
-    scope :alphabetical, -> { order(:name) }
+    scope :alphabetical,        -> { order(:name) }
+    scope :orderProficiency,    ->(level)
+    scope :orderByProficiency,  -> 
+
 end

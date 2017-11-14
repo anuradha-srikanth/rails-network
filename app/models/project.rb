@@ -5,6 +5,10 @@ class Project < ApplicationRecord
 
     # Scopes
     scope :alphabetical, -> { order(:name) }
-    
+    # scope :orderProficiency(level)
+    # scope :orderByProficiency
+
+
+
 
 end
