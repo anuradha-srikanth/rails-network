@@ -1,5 +1,5 @@
 class AccountsController < ApplicationController
-  before_action :set_account, only: [:show, :edit, :update, :destroy]
+  before_action :set_account, only: [:show, :edit, :update, :destroy, :add_friend]
 
   # GET /accounts
   # GET /accounts.json
@@ -60,6 +60,11 @@ class AccountsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # def add_friend
+  #   @contact = Account.find()
+
+  # end 
 
   private
     # Use callbacks to share common setup or constraints between actions.
