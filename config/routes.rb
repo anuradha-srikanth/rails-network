@@ -16,5 +16,9 @@ Rails.application.routes.draw do
 
     get 'home' => 'home#home', as: :home
     get "add_friend" => 'home#add_friend', as: :add_friend 
+    get 'signup' => 'users#new', :as => :signup
+    get 'login' => 'sessions#new', :as => :login
+    get 'logout' => 'sessions#destroy', :as => :logout
 
-end
+    
+  end

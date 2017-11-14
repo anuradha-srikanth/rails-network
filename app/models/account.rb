@@ -7,7 +7,7 @@ class Account < ApplicationRecord
     belongs_to :contact_link, class_name: "Account"
 
     #Validations
-    validates :username, presence: true, uniqueness: { case_sensitive: false}
+    validates :email, presence: true, uniqueness: { case_sensitive: false}
     validates_presence_of :password, on: :create 
     validates_presence_of :password_confirmation, on: :create 
     validates_confirmation_of :password, on: :create, message: "does not match"
