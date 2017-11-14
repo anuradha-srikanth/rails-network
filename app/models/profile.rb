@@ -6,13 +6,15 @@ class Profile < ApplicationRecord
     has_many :experience
 
 
-
-
-scope :ofDesignation,   ->(des) { where(designation: des) }
-scope :for_skill,       ->(skill)
-scope :for_experience,  ->(exp)
+  # Scopes
+    scope :alphabetical, -> { order(:name) }
+    scope :ofDesignation,   ->(des) { where(designation: des) }
+    scope :for_skill,       ->(skill)
+    scope :for_experience,  ->(exp)
 # scope :for_school       ->(school)
 
+
+    
 
 
 end
