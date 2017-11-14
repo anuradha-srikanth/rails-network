@@ -18,6 +18,9 @@ class Account < ApplicationRecord
         self.contacts << new_contact unless self.contacts.include?(new_contact) || new_contact == self
     end
 
-
+    private
+    def self.authenticate(email,password)
+        find_by_email(email).try(:authenticate, password)
+    end
 
 end

@@ -1,6 +1,7 @@
 class Profile < ApplicationRecord
 
     # Relationships
+    belongs_to :account
     has_many :skills
     has_many :projects
     has_many :experience
@@ -18,6 +19,16 @@ class Profile < ApplicationRecord
     validates :email, presence: true, uniqueness: { case_sensitive: false}, format: { with: /\A[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, message: "is not a valid format" }
     validates :phone, format: { with: /\A\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}\z/, message: "should be 10 digits (area code needed) and delimited with dashes only", allow_blank: true }
 
+
+  # Other methods
+    def name
+        "#{last_name}, #{first_name}"
+    end
+
+    def proper_name
+        "#{first_name} #{last_name}"
+    end
+
     private
     def reformat_phone
         phone = self.phone.to_s  # change to string in case input as all numbers 
@@ -25,9 +36,6 @@ class Profile < ApplicationRecord
         self.phone = phone       # reset self.phone to new string
     end
 
-    def self.authenticate(email,password)
-        find_by_email(email).try(:authenticate, password)
-    end
     
 
 
