@@ -29,19 +29,24 @@ class Account < ApplicationRecord
     #     self.contacts << new_contact unless self.contacts.include?(new_contact) || new_contact == self
     # end
 
+    def is_contact?(contact_from, contact_to)
+        return contact_from.contacts.include?(contact_to)
+    end
 
     def add_contact(new_contact_email)
         @contact = Account.for_email(new_contact_email).first
         # if self.contact_links
-        if not current_user.contacts.include?(@contact) and current_user != @contact
+        if not is_contact(current_user, @contact) and current_user != @contact
         # @cont = ContactLink.new(to_id: @contact.id, from_id: current_user.id)
             current_user.contacts << @contact
+            @contact.contacts << current_user
         end
     end 
 
     def delete_contact(contact_email)
         @contact = Account.for_email(contact_email).first
         current_user.contacts.delete(@contact)
+        @contact.contacts.delete(current_user)
     end
 
     private
