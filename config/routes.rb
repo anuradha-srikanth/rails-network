@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'qr_codes/new'
+
+  get 'qr_codes/create'
+
   resources :accounts
   resources :experiences
   resources :projects
@@ -29,5 +33,9 @@ Rails.application.routes.draw do
     get 'login' => 'sessions#new', :as => :login
     get 'logout' => 'sessions#destroy', :as => :logout
 
-    
-  end
+    resources :qr_codes, only: [:new, :create]
+    # root to: "qr_codes#new"
+    get 'qr' => 'qr_codes#new', :as => :generateQR
+
+
+end

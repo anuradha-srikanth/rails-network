@@ -45,6 +45,9 @@ gem 'will_paginate'
 gem 'font-awesome-sass', '~> 4.7.0'
 gem 'carrierwave', '1.0.0'
 
+# Gem to generate QR codes in rails
+gem 'rqrcode-with-patches', '~> 0.5.4'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

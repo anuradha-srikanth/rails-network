@@ -10,3 +10,6 @@ Account.create!(email: "user1@gmail.com",
                 role: "admin",
                 password:              "foobar",
                 password_confirmation: "foobar");
+
+
+# https://www.railstutorial.org/book/following_users
