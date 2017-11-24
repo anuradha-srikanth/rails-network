@@ -11,6 +11,13 @@ class AccountsController < ApplicationController
     
   end 
 
+  def contacts
+    @contacts = current_user.contacts
+  end 
+
+  def new_contact
+  end
+
   # GET /accounts/1
   # GET /accounts/1.json
   def show
