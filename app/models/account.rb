@@ -11,7 +11,7 @@ class Account < ApplicationRecord
             foreign_key: "from_id",
             dependent:   :destroy
     has_many :contacts, through: :contact_links, source: :to
-    has_many :contacts, through: :contact_links, source: :from
+    # has_many :contacts, through: :contact_links, source: :from
     # belongs_to :contact_link, class_name: "Account"
 
     #scopes
@@ -31,12 +31,18 @@ class Account < ApplicationRecord
 
 
     def add_contact(new_contact_email)
-        @username = Account.for_email(new_contact_email).first
+        @contact = Account.for_email(new_contact_email).first
         # if self.contact_links
-        if not current_user.contacts.include?(@username) and current_user != @username
-        @cont = ContactLink.new(to_id: @username.id,
-                                from_id: current_user.id)
+        if not current_user.contacts.include?(@contact) and current_user != @contact
+        # @cont = ContactLink.new(to_id: @contact.id, from_id: current_user.id)
+            current_user.contacts << @contact
+        end
     end 
+
+    def delete_contact(contact_email)
+        @contact = Account.for_email(contact_email).first
+        current_user.contacts.delete(@contact)
+    end
 
     private
     def self.authenticate(email,password)
