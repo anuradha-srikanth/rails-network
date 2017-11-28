@@ -11,6 +11,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1.json
   def show
     @all_projects = @profile.projects.all
+    @all_experience = @profile.experiences.all
   end
 
   # GET /profiles/new

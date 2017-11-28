@@ -4,8 +4,9 @@ class Profile < ApplicationRecord
     belongs_to :account
     has_many :skills
     has_many :projects
-    has_many :experience
+    has_many :experiences
 
+    validates :profile_id, presence: true
 
     # Scopes
     scope :alphabetical,    -> { order(:name) }
