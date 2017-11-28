@@ -20,7 +20,8 @@ gem 'sass-rails', '~> 5.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'bootstrap-sass'
+# , '~> 4.0.0.alpha3'
 gem 'jquery-rails'
 
 # Use CoffeeScript for .coffee assets and views
