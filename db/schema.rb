@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171114220632) do
+ActiveRecord::Schema.define(version: 20171128092914) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "password_digest"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20171114220632) do
   create_table "contact_links", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "from_id"
+    t.integer "to_id"
   end
 
   create_table "experiences", force: :cascade do |t|
@@ -32,6 +34,7 @@ ActiveRecord::Schema.define(version: 20171114220632) do
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "profile_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -43,6 +46,7 @@ ActiveRecord::Schema.define(version: 20171114220632) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "designation"
+    t.integer "account_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -52,6 +56,7 @@ ActiveRecord::Schema.define(version: 20171114220632) do
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "profile_id"
   end
 
   create_table "skills", force: :cascade do |t|
@@ -60,6 +65,7 @@ ActiveRecord::Schema.define(version: 20171114220632) do
     t.integer "proficiency"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "profile_id"
   end
 
 end

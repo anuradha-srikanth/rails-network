@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'qr_codes/new'
+
+  get 'qr_codes/create'
+
   resources :accounts
   resources :experiences
   resources :projects
@@ -14,12 +18,27 @@ Rails.application.routes.draw do
     #   end
     # end
 
+  # resources :accounts do
+  #   member do
+  #     get :contacts
+  #   end
+  # end
+
+    resources :sessions, :only => [:create, :destroy]
+
     get 'home' => 'home#home', as: :home
-    get "add_friend" => 'home#add_friend', as: :add_friend 
-    get 'signup' => 'users#new', :as => :signup
+    root to: "home#home"
+    
+    get "new_contact" => 'accounts#new_contact', as: :new_contact
+    get "contacts" => 'accounts#contacts', :as => :contacts
+    get 'signup' => 'accounts#new', :as => :signup
     get 'login' => 'sessions#new', :as => :login
     get 'logout' => 'sessions#destroy', :as => :logout
     #get 'profile' => 'profiles#show', :as => :profile
 
-    
-  end
+    resources :qr_codes, only: [:new, :create]
+    # root to: "qr_codes#new"
+    get 'qr' => 'qr_codes#new', :as => :generateQR
+
+
+end

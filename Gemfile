@@ -20,7 +20,8 @@ gem 'sass-rails', '~> 5.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'bootstrap-sass'
+# , '~> 4.0.0.alpha3'
 gem 'jquery-rails'
 
 # Use CoffeeScript for .coffee assets and views
@@ -44,6 +45,9 @@ gem 'will_paginate'
 # gem 'font-awesome-sass-rails', '3.0.2.2'
 gem 'font-awesome-sass', '~> 4.7.0'
 gem 'carrierwave', '1.0.0'
+
+# Gem to generate QR codes in rails
+gem 'rqrcode-with-patches', '~> 0.5.4'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
