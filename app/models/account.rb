@@ -22,7 +22,7 @@ class Account < ApplicationRecord
     validates_presence_of :password, on: :create 
     validates_presence_of :password_confirmation, on: :create 
     validates_confirmation_of :password, on: :create, message: "does not match"
-    validates_length_of :password, minimum: 4, message: "must be at least 4 characters long", allow_blank: true
+    validates_length_of :password, minimum: 4, message: "must be at least 4 characters long"
 
 
     # def add_contact(new_contact)

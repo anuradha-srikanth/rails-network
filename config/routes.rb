@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     resources :sessions, :only => [:create, :destroy]
 
     get 'home' => 'home#home', as: :home
+    root to: "home#home"
+    
     get "new_contact" => 'accounts#new_contact', as: :new_contact
     get "contacts" => 'accounts#contacts', :as => :contacts
     get 'signup' => 'accounts#new', :as => :signup

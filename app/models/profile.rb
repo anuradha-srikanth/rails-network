@@ -15,9 +15,9 @@ class Profile < ApplicationRecord
     # scope :for_school       ->(school)
 
     #Validations
-    validates :username, presence: true, uniqueness: { case_sensitive: false}
+    # validates :username, presence: true, uniqueness: { case_sensitive: false}
     validates :email, presence: true, uniqueness: { case_sensitive: false}, format: { with: /\A[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, message: "is not a valid format" }
-    validates :phone, format: { with: /\A\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}\z/, message: "should be 10 digits (area code needed) and delimited with dashes only", allow_blank: true }
+    validates :phone_no, format: { with: /\A\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}\z/, message: "should be 10 digits (area code needed) and delimited with dashes only", allow_blank: true }
 
     # Callbacks
     before_save :reformat_phone
