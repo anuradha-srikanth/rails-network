@@ -49,6 +49,9 @@ gem 'carrierwave', '1.0.0'
 # Gem to generate QR codes in rails
 gem 'rqrcode-with-patches', '~> 0.5.4'
 
+#add contact_links to groups
+gem 'acts-as-taggable-on', '~> 4.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

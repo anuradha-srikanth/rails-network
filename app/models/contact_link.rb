@@ -1,4 +1,7 @@
 class ContactLink < ApplicationRecord
+
+    acts_as_taggable
+
     # belongs_to :account
     # # This adds account_id as one foreign key
     # belongs_to :contact, :class_name => "Account"
@@ -11,5 +14,14 @@ class ContactLink < ApplicationRecord
     #Validations
     validates :to_id, presence: true
     validates :from_id, presence: true
+
+
+    def add_to_group(group_name)
+        @user.tag_list.add("awesome")   # add a single tag. alias for <<
+    end 
+
+    def remove_from_group(group_name)
+        
+    end
 
 end
