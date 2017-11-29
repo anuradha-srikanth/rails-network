@@ -2,6 +2,7 @@ class Account < ApplicationRecord
 
     # use has_secure_password
     has_secure_password
+    has_one :profile
 
     # has_many :contacts,
     #         class_name: "Account",

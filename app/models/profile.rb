@@ -6,7 +6,7 @@ class Profile < ApplicationRecord
     has_many :projects
     has_many :experiences
 
-    validates :profile_id, presence: true
+    # validates :profile_id, presence: true
 
     # Scopes
     scope :alphabetical,    -> { order(:name) }
