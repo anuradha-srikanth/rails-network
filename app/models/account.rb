@@ -11,6 +11,7 @@ class Account < ApplicationRecord
             foreign_key: "from_id",
             dependent:   :destroy
     has_many :contacts, through: :contact_links, source: :to
+    has_one :qr_code
     # has_many :contacts, through: :contact_links, source: :from
     # belongs_to :contact_link, class_name: "Account"
 
