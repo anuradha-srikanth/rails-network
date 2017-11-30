@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(version: 20171129204131) do
     t.datetime "updated_at", null: false
     t.integer "from_id"
     t.integer "to_id"
+    t.index ["from_id"], name: "index_contact_links_on_from_id"
+    t.index ["to_id", "from_id"], name: "index_contact_links_on_to_id_and_from_id", unique: true
+    t.index ["to_id"], name: "index_contact_links_on_to_id"
   end
 
   create_table "experiences", force: :cascade do |t|
